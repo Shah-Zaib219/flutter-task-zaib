@@ -1,16 +1,16 @@
 import 'package:flutter_task_zaib/ui/bottom_sheets/notice/notice_sheet.dart';
 import 'package:flutter_task_zaib/ui/dialogs/info_alert/info_alert_dialog.dart';
-import 'package:flutter_task_zaib/ui/views/home/home_view.dart';
 import 'package:flutter_task_zaib/ui/views/startup/startup_view.dart';
 import 'package:stacked/stacked_annotations.dart';
 import 'package:stacked_services/stacked_services.dart';
+import 'package:flutter_task_zaib/ui/views/bundles/bundles_view.dart';
 // @stacked-import
 
 @StackedApp(
   routes: [
-    MaterialRoute(page: HomeView),
     MaterialRoute(page: StartupView),
-    // @stacked-route
+    MaterialRoute(page: BundlesView),
+// @stacked-route
   ],
   dependencies: [
     LazySingleton(classType: BottomSheetService),
