@@ -2,6 +2,9 @@ import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
 import 'package:flutter_task_zaib/app/app.locator.dart';
 import 'package:stacked_services/stacked_services.dart';
+import 'package:flutter_task_zaib/services/bundle_service.dart';
+import 'package:flutter_task_zaib/services/plan_service.dart';
+import 'package:flutter_task_zaib/services/cart_service.dart';
 // @stacked-import
 
 import 'test_helpers.mocks.dart';
@@ -12,14 +15,20 @@ import 'test_helpers.mocks.dart';
     MockSpec<NavigationService>(onMissingStub: OnMissingStub.returnDefault),
     MockSpec<BottomSheetService>(onMissingStub: OnMissingStub.returnDefault),
     MockSpec<DialogService>(onMissingStub: OnMissingStub.returnDefault),
-    // @stacked-mock-spec
+    MockSpec<BundleService>(onMissingStub: OnMissingStub.returnDefault),
+    MockSpec<PlanService>(onMissingStub: OnMissingStub.returnDefault),
+    MockSpec<CartService>(onMissingStub: OnMissingStub.returnDefault),
+// @stacked-mock-spec
   ],
 )
 void registerServices() {
   getAndRegisterNavigationService();
   getAndRegisterBottomSheetService();
   getAndRegisterDialogService();
-  // @stacked-mock-register
+  getAndRegisterBundleService();
+  getAndRegisterPlanService();
+  getAndRegisterCartService();
+// @stacked-mock-register
 }
 
 MockNavigationService getAndRegisterNavigationService() {
@@ -76,6 +85,26 @@ MockDialogService getAndRegisterDialogService() {
   return service;
 }
 
+MockBundleService getAndRegisterBundleService() {
+  _removeRegistrationIfExists<BundleService>();
+  final service = MockBundleService();
+  locator.registerSingleton<BundleService>(service);
+  return service;
+}
+
+MockPlanService getAndRegisterPlanService() {
+  _removeRegistrationIfExists<PlanService>();
+  final service = MockPlanService();
+  locator.registerSingleton<PlanService>(service);
+  return service;
+}
+
+MockCartService getAndRegisterCartService() {
+  _removeRegistrationIfExists<CartService>();
+  final service = MockCartService();
+  locator.registerSingleton<CartService>(service);
+  return service;
+}
 // @stacked-mock-create
 
 void _removeRegistrationIfExists<T extends Object>() {

@@ -1,9 +1,12 @@
-import 'package:flutter_task_zaib/ui/bottom_sheets/notice/notice_sheet.dart';
 import 'package:flutter_task_zaib/ui/dialogs/info_alert/info_alert_dialog.dart';
 import 'package:flutter_task_zaib/ui/views/startup/startup_view.dart';
 import 'package:stacked/stacked_annotations.dart';
 import 'package:stacked_services/stacked_services.dart';
 import 'package:flutter_task_zaib/ui/views/bundles/bundles_view.dart';
+import 'package:flutter_task_zaib/services/bundle_service.dart';
+import 'package:flutter_task_zaib/services/plan_service.dart';
+import 'package:flutter_task_zaib/services/cart_service.dart';
+import 'package:flutter_task_zaib/ui/bottom_sheets/cart/cart_sheet.dart';
 // @stacked-import
 
 @StackedApp(
@@ -16,11 +19,14 @@ import 'package:flutter_task_zaib/ui/views/bundles/bundles_view.dart';
     LazySingleton(classType: BottomSheetService),
     LazySingleton(classType: DialogService),
     LazySingleton(classType: NavigationService),
-    // @stacked-service
+    LazySingleton(classType: BundleService),
+    LazySingleton(classType: PlanService),
+    LazySingleton(classType: CartService),
+// @stacked-service
   ],
   bottomsheets: [
-    StackedBottomsheet(classType: NoticeSheet),
-    // @stacked-bottom-sheet
+    StackedBottomsheet(classType: CartSheet),
+// @stacked-bottom-sheet
   ],
   dialogs: [
     StackedDialog(classType: InfoAlertDialog),

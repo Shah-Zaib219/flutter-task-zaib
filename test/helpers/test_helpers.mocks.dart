@@ -7,6 +7,12 @@ import 'dart:async' as _i5;
 import 'dart:ui' as _i6;
 
 import 'package:flutter/material.dart' as _i4;
+import 'package:flutter_task_zaib/models/bundle_model.dart' as _i8;
+import 'package:flutter_task_zaib/models/cart_item_model.dart' as _i12;
+import 'package:flutter_task_zaib/models/plan_model.dart' as _i10;
+import 'package:flutter_task_zaib/services/bundle_service.dart' as _i7;
+import 'package:flutter_task_zaib/services/cart_service.dart' as _i11;
+import 'package:flutter_task_zaib/services/plan_service.dart' as _i9;
 import 'package:mockito/mockito.dart' as _i1;
 import 'package:mockito/src/dummies.dart' as _i3;
 import 'package:stacked_services/stacked_services.dart' as _i2;
@@ -678,6 +684,175 @@ class MockDialogService extends _i1.Mock implements _i2.DialogService {
         Invocation.method(
           #completeDialog,
           [response],
+        ),
+        returnValueForMissingStub: null,
+      );
+}
+
+/// A class which mocks [BundleService].
+///
+/// See the documentation for Mockito's code generation for more information.
+class MockBundleService extends _i1.Mock implements _i7.BundleService {
+  @override
+  _i5.Future<List<_i8.BundleModel>> getBundles() => (super.noSuchMethod(
+        Invocation.method(
+          #getBundles,
+          [],
+        ),
+        returnValue:
+            _i5.Future<List<_i8.BundleModel>>.value(<_i8.BundleModel>[]),
+        returnValueForMissingStub:
+            _i5.Future<List<_i8.BundleModel>>.value(<_i8.BundleModel>[]),
+      ) as _i5.Future<List<_i8.BundleModel>>);
+}
+
+/// A class which mocks [PlanService].
+///
+/// See the documentation for Mockito's code generation for more information.
+class MockPlanService extends _i1.Mock implements _i9.PlanService {
+  @override
+  _i5.Future<List<_i10.PlanModel>> getPlans() => (super.noSuchMethod(
+        Invocation.method(
+          #getPlans,
+          [],
+        ),
+        returnValue: _i5.Future<List<_i10.PlanModel>>.value(<_i10.PlanModel>[]),
+        returnValueForMissingStub:
+            _i5.Future<List<_i10.PlanModel>>.value(<_i10.PlanModel>[]),
+      ) as _i5.Future<List<_i10.PlanModel>>);
+}
+
+/// A class which mocks [CartService].
+///
+/// See the documentation for Mockito's code generation for more information.
+class MockCartService extends _i1.Mock implements _i11.CartService {
+  @override
+  List<_i12.CartItemModel> get items => (super.noSuchMethod(
+        Invocation.getter(#items),
+        returnValue: <_i12.CartItemModel>[],
+        returnValueForMissingStub: <_i12.CartItemModel>[],
+      ) as List<_i12.CartItemModel>);
+
+  @override
+  int get cartCount => (super.noSuchMethod(
+        Invocation.getter(#cartCount),
+        returnValue: 0,
+        returnValueForMissingStub: 0,
+      ) as int);
+
+  @override
+  int get listenersCount => (super.noSuchMethod(
+        Invocation.getter(#listenersCount),
+        returnValue: 0,
+        returnValueForMissingStub: 0,
+      ) as int);
+
+  @override
+  void addBundle(_i8.BundleModel? bundle) => super.noSuchMethod(
+        Invocation.method(
+          #addBundle,
+          [bundle],
+        ),
+        returnValueForMissingStub: null,
+      );
+
+  @override
+  void removeBundle(String? id) => super.noSuchMethod(
+        Invocation.method(
+          #removeBundle,
+          [id],
+        ),
+        returnValueForMissingStub: null,
+      );
+
+  @override
+  void updateQuantity(
+    String? id,
+    int? delta,
+  ) =>
+      super.noSuchMethod(
+        Invocation.method(
+          #updateQuantity,
+          [
+            id,
+            delta,
+          ],
+        ),
+        returnValueForMissingStub: null,
+      );
+
+  @override
+  void clearCart() => super.noSuchMethod(
+        Invocation.method(
+          #clearCart,
+          [],
+        ),
+        returnValueForMissingStub: null,
+      );
+
+  @override
+  double getTotalPrice() => (super.noSuchMethod(
+        Invocation.method(
+          #getTotalPrice,
+          [],
+        ),
+        returnValue: 0.0,
+        returnValueForMissingStub: 0.0,
+      ) as double);
+
+  @override
+  List<_i12.CartItemModel> getCartItems() => (super.noSuchMethod(
+        Invocation.method(
+          #getCartItems,
+          [],
+        ),
+        returnValue: <_i12.CartItemModel>[],
+        returnValueForMissingStub: <_i12.CartItemModel>[],
+      ) as List<_i12.CartItemModel>);
+
+  @override
+  bool isInCart(String? id) => (super.noSuchMethod(
+        Invocation.method(
+          #isInCart,
+          [id],
+        ),
+        returnValue: false,
+        returnValueForMissingStub: false,
+      ) as bool);
+
+  @override
+  void listenToReactiveValues(List<dynamic>? reactiveValues) =>
+      super.noSuchMethod(
+        Invocation.method(
+          #listenToReactiveValues,
+          [reactiveValues],
+        ),
+        returnValueForMissingStub: null,
+      );
+
+  @override
+  void addListener(void Function()? listener) => super.noSuchMethod(
+        Invocation.method(
+          #addListener,
+          [listener],
+        ),
+        returnValueForMissingStub: null,
+      );
+
+  @override
+  void removeListener(void Function()? listener) => super.noSuchMethod(
+        Invocation.method(
+          #removeListener,
+          [listener],
+        ),
+        returnValueForMissingStub: null,
+      );
+
+  @override
+  void notifyListeners() => super.noSuchMethod(
+        Invocation.method(
+          #notifyListeners,
+          [],
         ),
         returnValueForMissingStub: null,
       );
