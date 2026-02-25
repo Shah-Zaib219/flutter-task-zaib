@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../../common/app_colors.dart';
 import '../../../common/ui_helpers.dart';
 
@@ -10,10 +11,10 @@ class SupportSection extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        const Text(
+        Text(
           'Need support?',
           style: TextStyle(
-            fontSize: 20,
+            fontSize: 16.sp,
             fontWeight: FontWeight.bold,
             color: kcTitleColor,
             fontFamily: 'SF Pro Display',
@@ -22,33 +23,33 @@ class SupportSection extends StatelessWidget {
         verticalSpaceSmall,
         Row(
           children: [
-            const Text(
+            Text(
               'If you need help, contact us on ',
               style: TextStyle(
-                fontSize: 15,
+                fontSize: 15.sp,
                 color: kcSubtitleColor,
                 fontFamily: 'SF Pro Display',
               ),
             ),
             Container(
-              padding: const EdgeInsets.all(4),
+              padding: EdgeInsets.all(4.w),
               decoration: const BoxDecoration(
                 color: Color(0xFF25D366), // WhatsApp Green
                 shape: BoxShape.circle,
               ),
-              child: const Icon(
+              child: Icon(
                 Icons.phone,
                 color: Colors.white,
-                size: 14,
+                size: 14.w,
               ),
             ),
             horizontalSpaceTiny,
-            const Text(
+            Text(
               'Whatsapp',
               style: TextStyle(
-                fontSize: 16,
+                fontSize: 16.sp,
                 fontWeight: FontWeight.bold,
-                color: Color(0xFF25D366),
+                color: const Color(0xFF25D366),
                 fontFamily: 'SF Pro Display',
               ),
             ),

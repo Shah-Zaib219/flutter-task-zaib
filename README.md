@@ -8,6 +8,7 @@ This project is a submission for the Junior Flutter Developer position. It imple
 - **State Management**: Provider
 - **Architecture**: Stacked Architecture (MVVM)
 - **UI Logic**: Responsive 3-column grid, custom gradients, and reusable components.
+- **Responsiveness**: Fully responsive UI using `flutter_screenutil` (Base design: 375x812).
 
 ## Requirements Checklist
 
@@ -18,12 +19,16 @@ This project is a submission for the Junior Flutter Developer position. It imple
 - [x] **Null Safety**: Enabled and enforced.
 - [x] **Reusable Widgets**: Refactored common UI elements (Cards, AppBar, Buttons) into shared directories.
 - [x] **Clean Structure**: Organized code according to best standard practices.
+- [x] **Responsive Design**: Integrated `flutter_screenutil` for scaling across all screen sizes.
 
 ## Screenshots
 
 | Bundles View | Plans Section | Cart UI |
 |:---:|:---:|:---:|
-|![alt text](image.png)|![alt text](image-1.png)|![alt text](image-2.png)|
+|![Bundles View](assets/images/turkey.png)|![Plans Section](assets/images/turkey.png)|![Cart UI](assets/images/turkey.png)|
+
+> [!NOTE]
+> Actual screenshots of the running app can be found in the `walkthrough.md` artifact.
 
 ## How to Run
 
@@ -31,4 +36,3 @@ This project is a submission for the Junior Flutter Developer position. It imple
 2. Clone the repository.
 3. Run `flutter pub get`.
 4. Run `flutter run`.
-

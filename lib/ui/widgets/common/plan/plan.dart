@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../../common/app_colors.dart';
 import '../../../common/ui_helpers.dart';
 import '../../../../models/plan_model.dart';
@@ -14,12 +15,11 @@ class PlanCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: (MediaQuery.of(context).size.width - 52) /
-          2, // Slightly more width, smaller gaps
-      padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 16),
+      width: (1.sw - 52.w) / 2, // Slightly more width, smaller gaps
+      padding: EdgeInsets.symmetric(horizontal: 12.w, vertical: 16.h),
       decoration: BoxDecoration(
         color: kcWhite,
-        borderRadius: BorderRadius.circular(20),
+        borderRadius: BorderRadius.circular(20.r),
         border: Border.all(color: kcLightGrey.withValues(alpha: 0.5)),
       ),
       child: Column(
@@ -27,18 +27,18 @@ class PlanCard extends StatelessWidget {
         children: [
           // Plan Name with Background
           Container(
-            padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
+            padding: EdgeInsets.symmetric(horizontal: 12.w, vertical: 6.h),
             decoration: BoxDecoration(
               color: kcHighlightColor,
-              borderRadius: BorderRadius.circular(15),
+              borderRadius: BorderRadius.circular(15.r),
             ),
             child: Text(
               plan.name,
               maxLines: 1,
               overflow: TextOverflow.ellipsis,
-              style: const TextStyle(
+              style: TextStyle(
                 color: kcTitleColor,
-                fontSize: 16,
+                fontSize: 16.sp,
                 fontWeight: FontWeight.bold,
                 fontFamily: 'SF Pro Display',
               ),
@@ -73,18 +73,18 @@ class PlanCard extends StatelessWidget {
                     children: [
                       TextSpan(
                         text: '${plan.supportedCountriesCount} ',
-                        style: const TextStyle(
+                        style: TextStyle(
                           color: kcTitleColor,
-                          fontSize: 14,
+                          fontSize: 14.sp,
                           fontWeight: FontWeight.bold,
                           fontFamily: 'SF Pro Display',
                         ),
                       ),
-                      const TextSpan(
+                      TextSpan(
                         text: 'Supported Countries',
                         style: TextStyle(
                           color: kcTitleColor,
-                          fontSize: 13,
+                          fontSize: 13.sp,
                           fontWeight: FontWeight.w400,
                           fontFamily: 'SF Pro Display',
                         ),
@@ -105,20 +105,20 @@ class PlanCard extends StatelessWidget {
             child: RichText(
               text: TextSpan(
                 children: [
-                  const TextSpan(
+                  TextSpan(
                     text: 'USD ',
                     style: TextStyle(
                       color: kcPriceColor,
-                      fontSize: 16,
+                      fontSize: 16.sp,
                       fontWeight: FontWeight.w400,
                       fontFamily: 'SF Pro Display',
                     ),
                   ),
                   TextSpan(
                     text: plan.price.toStringAsFixed(2),
-                    style: const TextStyle(
+                    style: TextStyle(
                       color: kcPriceColor,
-                      fontSize: 20,
+                      fontSize: 20.sp,
                       fontWeight: FontWeight.bold,
                       fontFamily: 'SF Pro Display',
                     ),
@@ -151,18 +151,18 @@ class _InfoColumn extends StatelessWidget {
       children: [
         Text(
           label,
-          style: const TextStyle(
+          style: TextStyle(
             color: kcSubtitleColor,
-            fontSize: 13,
+            fontSize: 13.sp,
             fontWeight: FontWeight.w400,
             fontFamily: 'SF Pro Display',
           ),
         ),
         Text(
           value,
-          style: const TextStyle(
+          style: TextStyle(
             color: kcTitleColor,
-            fontSize: 16,
+            fontSize: 16.sp,
             fontWeight: FontWeight.bold,
             fontFamily: 'SF Pro Display',
           ),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
 import 'package:flutter_task_zaib/app/app.bottomsheets.dart';
@@ -34,12 +35,27 @@ class MainApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      initialRoute: Routes.startupView,
-      onGenerateRoute: StackedRouter().onGenerateRoute,
-      navigatorKey: StackedService.navigatorKey,
-      navigatorObservers: [StackedService.routeObserver],
+    return ScreenUtilInit(
+      designSize: const Size(375, 812), // Standard design size
+      minTextAdapt: true,
+      splitScreenMode: true,
+      builder: (context, child) {
+        return MaterialApp(
+          debugShowCheckedModeBanner: false,
+          initialRoute: Routes.startupView,
+          onGenerateRoute: StackedRouter().onGenerateRoute,
+          navigatorKey: StackedService.navigatorKey,
+          navigatorObservers: [StackedService.routeObserver],
+          builder: (context, widget) {
+            // Apply ScreenUtil to fonts
+            return MediaQuery(
+              data: MediaQuery.of(context)
+                  .copyWith(textScaler: TextScaler.noScaling),
+              child: widget!,
+            );
+          },
+        );
+      },
     );
   }
 }

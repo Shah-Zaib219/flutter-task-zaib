@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../../common/app_colors.dart';
 import '../../../common/ui_helpers.dart';
 
@@ -27,22 +28,22 @@ class BundlesAppBar extends StatelessWidget implements PreferredSizeWidget {
           ),
         ),
       ),
-      title: const Text(
+      title: Text(
         'Turkey',
         style: TextStyle(
           color: Colors.white,
           fontWeight: FontWeight.bold,
-          fontSize: 20,
+          fontSize: 20.sp,
           fontFamily: 'SF Pro Display',
         ),
       ),
-      leading: const Icon(Icons.chevron_left, color: Colors.white, size: 28),
+      leading: Icon(Icons.chevron_left, color: Colors.white, size: 28.w),
       actions: [
         IconButton(
           icon: Image.asset(
             'assets/icon/cart.png',
-            width: 24,
-            height: 24,
+            width: 24.w,
+            height: 24.w,
             color: Colors.white,
           ),
           onPressed: onCartPressed,

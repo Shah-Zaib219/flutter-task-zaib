@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:stacked/stacked.dart';
 import '../../common/app_colors.dart';
 import '../../common/ui_helpers.dart';
@@ -28,25 +29,32 @@ class BundlesView extends StackedView<BundlesViewModel> {
           : Stack(
               children: [
                 SingleChildScrollView(
-                  padding: const EdgeInsets.symmetric(horizontal: 20),
+                  padding: EdgeInsets.symmetric(horizontal: 20.w),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       verticalSpaceSmall,
                       // Search Bar
                       Container(
-                        padding: const EdgeInsets.symmetric(horizontal: 15),
+                        padding: EdgeInsets.symmetric(horizontal: 15.w),
                         decoration: BoxDecoration(
                           color: Colors.white,
-                          borderRadius: BorderRadius.circular(30),
+                          borderRadius: BorderRadius.circular(30.r),
                           border: Border.all(color: kcLightGrey),
                         ),
-                        child: const TextField(
+                        child: TextField(
                           decoration: InputDecoration(
                             border: InputBorder.none,
                             hintText: 'Where do you need internet?',
-                            hintStyle: TextStyle(color: kcMediumGrey),
-                            icon: Icon(Icons.search, color: kcMediumGrey),
+                            hintStyle: TextStyle(
+                              color: kcMediumGrey,
+                              fontSize: 14.sp,
+                            ),
+                            icon: Icon(
+                              Icons.search,
+                              color: kcMediumGrey,
+                              size: 20.w,
+                            ),
                           ),
                         ),
                       ),
@@ -55,18 +63,18 @@ class BundlesView extends StackedView<BundlesViewModel> {
                       Row(
                         children: [
                           Container(
-                            padding: const EdgeInsets.symmetric(
-                                horizontal: 12, vertical: 6),
+                            padding: EdgeInsets.symmetric(
+                                horizontal: 12.w, vertical: 6.h),
                             decoration: BoxDecoration(
                               color: kcHighlightColor,
-                              borderRadius: BorderRadius.circular(25),
+                              borderRadius: BorderRadius.circular(25.r),
                             ),
                             child: Row(
                               mainAxisSize: MainAxisSize.min,
                               children: [
                                 Container(
-                                  width: 24,
-                                  height: 24,
+                                  width: 24.w,
+                                  height: 24.w,
                                   decoration: const BoxDecoration(
                                     shape: BoxShape.circle,
                                   ),
@@ -78,18 +86,18 @@ class BundlesView extends StackedView<BundlesViewModel> {
                                   ),
                                 ),
                                 horizontalSpaceSmall,
-                                const Text(
+                                Text(
                                   'Turkey',
                                   style: TextStyle(
-                                    fontSize: 16,
+                                    fontSize: 16.sp,
                                     fontWeight: FontWeight.w600,
                                     color: kcTitleColor,
                                     fontFamily: 'SF Pro Display',
                                   ),
                                 ),
                                 horizontalSpaceSmall,
-                                const Icon(Icons.close,
-                                    size: 16, color: kcMediumGrey),
+                                Icon(Icons.close,
+                                    size: 16.w, color: kcMediumGrey),
                               ],
                             ),
                           ),
@@ -101,17 +109,16 @@ class BundlesView extends StackedView<BundlesViewModel> {
                         children: [
                           _FilterChip(label: 'All', isActive: true),
                           horizontalSpaceSmall,
-                          const _FilterChip(label: 'Standard', isActive: false),
+                          _FilterChip(label: 'Standard', isActive: false),
                           horizontalSpaceSmall,
-                          const _FilterChip(
-                              label: 'Unlimited', isActive: false),
+                          _FilterChip(label: 'Unlimited', isActive: false),
                         ],
                       ),
                       verticalSpaceMedium,
                       Text(
                         '${viewModel.bundles.length} Bundles Available for Turkey',
-                        style: const TextStyle(
-                          fontSize: 18,
+                        style: TextStyle(
+                          fontSize: 16.sp,
                           fontWeight: FontWeight.bold,
                           color: kcTitleColor,
                           fontFamily: 'SF Pro Display',
@@ -122,12 +129,11 @@ class BundlesView extends StackedView<BundlesViewModel> {
                       GridView.builder(
                         shrinkWrap: true,
                         physics: const NeverScrollableScrollPhysics(),
-                        gridDelegate:
-                            const SliverGridDelegateWithFixedCrossAxisCount(
+                        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                           crossAxisCount: 3,
-                          childAspectRatio: 0.75,
-                          crossAxisSpacing: 10,
-                          mainAxisSpacing: 10,
+                          childAspectRatio: 0.72,
+                          crossAxisSpacing: 10.w,
+                          mainAxisSpacing: 10.h,
                         ),
                         itemCount: viewModel.bundles.length,
                         itemBuilder: (context, index) {
@@ -141,10 +147,10 @@ class BundlesView extends StackedView<BundlesViewModel> {
                         },
                       ),
                       verticalSpaceMedium,
-                      const Text(
+                      Text(
                         'Regional & Global Plans Supporting Turkey',
                         style: TextStyle(
-                          fontSize: 18,
+                          fontSize: 16.sp,
                           fontWeight: FontWeight.bold,
                           color: kcTitleColor,
                           fontFamily: 'SF Pro Display',
@@ -152,8 +158,8 @@ class BundlesView extends StackedView<BundlesViewModel> {
                       ),
                       verticalSpaceSmall,
                       Wrap(
-                        spacing: 12,
-                        runSpacing: 12,
+                        spacing: 12.w,
+                        runSpacing: 12.h,
                         children: viewModel.plans
                             .map((plan) => PlanCard(plan: plan))
                             .toList(),
@@ -173,13 +179,13 @@ class BundlesView extends StackedView<BundlesViewModel> {
                     child: Container(
                       constraints: BoxConstraints(
                           maxHeight: MediaQuery.of(context).size.height * 0.4),
-                      padding: const EdgeInsets.symmetric(
-                          horizontal: 20, vertical: 15),
+                      padding: EdgeInsets.symmetric(
+                          horizontal: 20.w, vertical: 15.h),
                       decoration: BoxDecoration(
                         color: Colors.white,
-                        borderRadius: const BorderRadius.only(
-                          topLeft: Radius.circular(25),
-                          topRight: Radius.circular(25),
+                        borderRadius: BorderRadius.only(
+                          topLeft: Radius.circular(25.r),
+                          topRight: Radius.circular(25.r),
                         ),
                         boxShadow: [
                           BoxShadow(
@@ -193,11 +199,11 @@ class BundlesView extends StackedView<BundlesViewModel> {
                         mainAxisSize: MainAxisSize.min,
                         children: [
                           Container(
-                            width: 40,
-                            height: 4,
+                            width: 40.w,
+                            height: 4.h,
                             decoration: BoxDecoration(
                               color: kcLightGrey,
-                              borderRadius: BorderRadius.circular(2),
+                              borderRadius: BorderRadius.circular(2.r),
                             ),
                           ),
                           verticalSpaceSmall,
@@ -210,8 +216,7 @@ class BundlesView extends StackedView<BundlesViewModel> {
                               itemBuilder: (context, index) {
                                 final item = viewModel.cartItems[index];
                                 return Padding(
-                                  padding:
-                                      const EdgeInsets.symmetric(vertical: 8),
+                                  padding: EdgeInsets.symmetric(vertical: 8.h),
                                   child: Row(
                                     children: [
                                       Expanded(
@@ -222,10 +227,10 @@ class BundlesView extends StackedView<BundlesViewModel> {
                                             RichText(
                                               text: TextSpan(
                                                 children: [
-                                                  const TextSpan(
+                                                  TextSpan(
                                                     text: 'USD ',
                                                     style: TextStyle(
-                                                      fontSize: 16,
+                                                      fontSize: 16.sp,
                                                       fontWeight:
                                                           FontWeight.w500,
                                                       color: kcPriceColor,
@@ -236,8 +241,8 @@ class BundlesView extends StackedView<BundlesViewModel> {
                                                   TextSpan(
                                                     text: item.bundle.price
                                                         .toStringAsFixed(2),
-                                                    style: const TextStyle(
-                                                      fontSize: 16,
+                                                    style: TextStyle(
+                                                      fontSize: 16.sp,
                                                       fontWeight:
                                                           FontWeight.bold,
                                                       color: kcPriceColor,
@@ -250,8 +255,8 @@ class BundlesView extends StackedView<BundlesViewModel> {
                                             ),
                                             Text(
                                               '${item.bundle.dataAmount} / ${item.bundle.validity}',
-                                              style: const TextStyle(
-                                                fontSize: 12,
+                                              style: TextStyle(
+                                                fontSize: 12.sp,
                                                 color: kcSubtitleColor,
                                                 fontFamily: 'SF Pro Display',
                                               ),
@@ -260,13 +265,14 @@ class BundlesView extends StackedView<BundlesViewModel> {
                                         ),
                                       ),
                                       Container(
-                                        padding: const EdgeInsets.symmetric(
-                                            horizontal: 4),
+                                        padding: EdgeInsets.symmetric(
+                                            horizontal: 4.w),
                                         decoration: BoxDecoration(
                                           border: Border.all(
-                                              color: kcTitleColor, width: 1.2),
+                                              color: kcTitleColor,
+                                              width: 1.2.w),
                                           borderRadius:
-                                              BorderRadius.circular(20),
+                                              BorderRadius.circular(20.r),
                                         ),
                                         child: Row(
                                           children: [
@@ -274,32 +280,32 @@ class BundlesView extends StackedView<BundlesViewModel> {
                                               onTap: () =>
                                                   viewModel.decrementQuantity(
                                                       item.bundle.id),
-                                              child: const Padding(
-                                                padding: EdgeInsets.all(6.0),
+                                              child: Padding(
+                                                padding: EdgeInsets.all(6.0.w),
                                                 child: Icon(Icons.remove,
-                                                    size: 14,
+                                                    size: 14.w,
                                                     color: kcTitleColor),
                                               ),
                                             ),
-                                            const SizedBox(width: 4),
+                                            SizedBox(width: 4.w),
                                             Text(
                                               'x${item.quantity}',
-                                              style: const TextStyle(
+                                              style: TextStyle(
                                                 fontWeight: FontWeight.bold,
-                                                fontSize: 14,
+                                                fontSize: 14.sp,
                                                 color: kcTitleColor,
                                                 fontFamily: 'SF Pro Display',
                                               ),
                                             ),
-                                            const SizedBox(width: 4),
+                                            SizedBox(width: 4.w),
                                             GestureDetector(
                                               onTap: () =>
                                                   viewModel.incrementQuantity(
                                                       item.bundle.id),
-                                              child: const Padding(
-                                                padding: EdgeInsets.all(6.0),
+                                              child: Padding(
+                                                padding: EdgeInsets.all(6.0.w),
                                                 child: Icon(Icons.add,
-                                                    size: 14,
+                                                    size: 14.w,
                                                     color: kcTitleColor),
                                               ),
                                             ),
@@ -307,8 +313,9 @@ class BundlesView extends StackedView<BundlesViewModel> {
                                         ),
                                       ),
                                       IconButton(
-                                        icon: const Icon(Icons.close,
-                                            color: Color(0xFFE57373), size: 20),
+                                        icon: Icon(Icons.close,
+                                            color: const Color(0xFFE57373),
+                                            size: 20.w),
                                         onPressed: () => viewModel
                                             .removeItem(item.bundle.id),
                                       ),
@@ -321,23 +328,23 @@ class BundlesView extends StackedView<BundlesViewModel> {
                           verticalSpaceSmall,
                           SizedBox(
                             width: double.infinity,
-                            height: 50,
+                            height: 50.h,
                             child: ElevatedButton(
                               onPressed: () {}, // Checkout action
                               style: ElevatedButton.styleFrom(
                                 backgroundColor: const Color(0xFF1EC896),
                                 elevation: 0,
                                 shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(30),
+                                  borderRadius: BorderRadius.circular(30.r),
                                 ),
                               ),
                               child: RichText(
                                 text: TextSpan(
                                   children: [
-                                    const TextSpan(
+                                    TextSpan(
                                       text: 'USD ',
                                       style: TextStyle(
-                                        fontSize: 16,
+                                        fontSize: 16.sp,
                                         fontWeight: FontWeight.w400,
                                         color: Colors.white,
                                         fontFamily: 'SF Pro Display',
@@ -346,17 +353,17 @@ class BundlesView extends StackedView<BundlesViewModel> {
                                     TextSpan(
                                       text: viewModel.cartTotal
                                           .toStringAsFixed(1),
-                                      style: const TextStyle(
-                                        fontSize: 16,
+                                      style: TextStyle(
+                                        fontSize: 16.sp,
                                         fontWeight: FontWeight.bold,
                                         color: Colors.white,
                                         fontFamily: 'SF Pro Display',
                                       ),
                                     ),
-                                    const TextSpan(
+                                    TextSpan(
                                       text: ' - CHECKOUT',
                                       style: TextStyle(
-                                        fontSize: 16,
+                                        fontSize: 16.sp,
                                         fontWeight: FontWeight.w500,
                                         color: Colors.white,
                                         fontFamily: 'SF Pro Display',
@@ -392,10 +399,10 @@ class _FilterChip extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 8),
+      padding: EdgeInsets.symmetric(horizontal: 24.w, vertical: 8.h),
       decoration: BoxDecoration(
         color: isActive ? kcPrimaryColor : Colors.white,
-        borderRadius: BorderRadius.circular(30),
+        borderRadius: BorderRadius.circular(30.r),
         border: Border.all(color: kcPrimaryColor, width: 1.2),
       ),
       child: Text(
@@ -403,7 +410,7 @@ class _FilterChip extends StatelessWidget {
         style: TextStyle(
           color: isActive ? Colors.white : kcPrimaryColor,
           fontWeight: isActive ? FontWeight.bold : FontWeight.w500,
-          fontSize: 15,
+          fontSize: 15.sp,
           fontFamily: 'SF Pro Display',
         ),
       ),
