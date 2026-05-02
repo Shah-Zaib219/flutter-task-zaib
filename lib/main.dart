@@ -10,6 +10,7 @@ import 'package:stacked_services/stacked_services.dart';
 import 'ui/views/bundles/bundles_viewmodel.dart';
 import 'services/cart_service.dart';
 
+
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await SystemChrome.setPreferredOrientations([
